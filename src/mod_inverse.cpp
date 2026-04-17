@@ -31,8 +31,10 @@ int mod_inverse(int a, int m) {
     int x = 0, y = 0;
     int g = extended_euclid(a, m, x, y);
     
+    // Check if modular inverse exists (gcd must be 1)
     if (g != 1) {
-        return -1; // Inverse does not exist
+        int inv = -1;
+        return inv;
     }
     
     // Return positive modular inverse
