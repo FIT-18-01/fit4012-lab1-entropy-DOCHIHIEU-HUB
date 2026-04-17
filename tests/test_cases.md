@@ -1,5 +1,12 @@
 # Test Cases – FIT4012 Lab 1: Entropy, Redundancy & Modular Inverse
 
+## Test Execution Checklist
+- [x] Test case 1: "aaaa" - entropy thấp, redundancy cao
+- [x] Test case 2: "abcd" - entropy cao hơn "aaaa"
+- [x] Test case 3: "hello world" - entropy và redundancy được tính hợp lệ
+- [x] Test case 4: Modulo inverse a=3, m=7 → 5
+- [x] Test case 5: Modulo inverse a=10, m=17 → 12
+
 Test cases bao gồm 2 phần chính: entropy/redundancy và modular inverse.
 
 ## Part 1: Entropy and Redundancy Calculation
