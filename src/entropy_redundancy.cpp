@@ -24,8 +24,7 @@ double calculate_entropy(const string &text) {
 }
 
 double calculate_redundancy(const string &text, int alphabet_size = 256) {
-    // TODO(student): implement redundancy = log2(N) - H(X)
-    // Hint: use calculate_entropy(text)
+    // Calculate redundancy = log2(N) - H(X)
     double entropy = calculate_entropy(text);
     double max_entropy = log2(alphabet_size);
     return max_entropy - entropy;
