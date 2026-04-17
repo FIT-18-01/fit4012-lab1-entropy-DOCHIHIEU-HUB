@@ -1,16 +1,45 @@
-# Test cases – FIT4012 Lab 1
+# Test Cases – FIT4012 Lab 1: Entropy, Redundancy & Modular Inverse
 
-Đánh dấu [x] khi đã chạy và kiểm tra kết quả.
+Test cases bao gồm 2 phần chính: entropy/redundancy và modular inverse.
 
-## 1. Entropy / Redundancy
-- [x] Input: `aaaa` -> entropy thấp, redundancy cao
-- [x] Input: `abcd` -> entropy cao hơn `aaaa`
-- [x] Input: `hello world` -> entropy và redundancy được tính hợp lệ
+## Part 1: Entropy and Redundancy Calculation
 
-## 2. Modulo inverse
-- [x] `a=3, m=7` -> nghịch đảo modulo là 5
-- [x] `a=10, m=17` -> nghịch đảo modulo là 12
-- [x] `a=6, m=9` -> không tồn tại nghịch đảo modulo
+**Công thức:**
+- Entropy: H(X) = -Σ p(x) * log₂(p(x))
+- Redundancy: R = log₂(N) - H(X), với N là kích thước alphabet
 
-## 3. Ghi chú
-Thêm test riêng của nhóm nếu cần.
+| Test # | Input | Expected Result | Pass |
+|--------|-------|-----------------|------|
+| 1 | `"aaaa"` | Entropy=0.0, Redundancy=8.0 (dữ liệu hoàn toàn dự đoán được) | ✓ |
+| 2 | `"abcd"` | Entropy=2.0, Redundancy=6.0 (dữ liệu có nhiều tính chất ngẫu nhiên) | ✓ |
+| 3 | `"hello world"` | Entropy≈2.845, Redundancy≈5.155 | ✓ |
+| 4 | `"aabbcc"` | Entropy≈1.585, Redundancy≈6.415 | ✓ |
+| 5 | `"aaaaabbbcc"` | Entropy≈1.485, Redundancy≈6.515 | ✓ |
+
+**Nhận xét:**
+- Chuỗi có ký tự giống nhau (entropy thấp) → redundancy cao
+- Chuỗi có ký tự đa dạng (entropy cao) → redundancy thấp
+
+## Part 2: Modular Inverse (Extended Euclidean Algorithm)
+
+**Công thức:**
+- Tìm x sao cho: a*x ≡ 1 (mod m)
+- Điều kiện tồn tại: gcd(a, m) = 1
+
+| Test # | a | m | GCD | Expected Inverse | Verification | Pass |
+|--------|---|---|-----|------------------|--------------|------|
+| 1 | 3 | 7 | 1 | 5 | 3*5 % 7 = 1 | ✓ |
+| 2 | 10 | 17 | 1 | 12 | 10*12 % 17 = 1 | ✓ |
+| 3 | 6 | 9 | 3 | N/A (không tồn tại) | gcd≠1 | ✓ |
+| 4 | 7 | 26 | 1 | 15 | 7*15 % 26 = 1 | ✓ |
+| 5 | 5 | 11 | 1 | 9 | 5*9 % 11 = 1 | ✓ |
+
+**Nhận xét:**
+- Khi gcd(a, m) = 1, luôn tồn tại nghịch đảo modulo duy nhất
+- Khi gcd(a, m) ≠ 1, không tồn tại nghịch đảo modulo
+
+## Tổng hợp
+✓ **10 test cases**: 10 đã pass  
+✓ **Entropy/Redundancy**: 5 test cases  
+✓ **Modular Inverse**: 5 test cases  
+✓ **Thời gian chạy**: < 1 giây (tất cả tests)
