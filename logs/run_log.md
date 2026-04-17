@@ -1,5 +1,12 @@
 # Run Log – FIT4012 Lab 1
 
+## Execution Summary
+- [x] Entropy calculation with "aaaa" - Result: H=0.0, R=8.0
+- [x] Entropy calculation with "abcd" - Result: H=2.0, R=6.0
+- [x] Entropy calculation with "hello world" - Result: H≈2.845, R≈5.155
+- [x] Modular Inverse for a=3, m=7 - Result: 5
+- [x] Modular Inverse for a=10, m=17 - Result: 12
+
 ## Execution Environment
 - **Date**: April 17, 2026
 - **Platform**: Windows 10/11
